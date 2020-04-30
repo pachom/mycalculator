@@ -35,6 +35,7 @@ func (calc) operate(entrada string, operador string) int {
 
 func parsear(entrada string) int {
 	operador, _ := strconv.Atoi(entrada)
+	return operador
 }
 
 func LeerEntrada() string {
