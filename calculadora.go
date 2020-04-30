@@ -12,8 +12,8 @@ type calc struct{}
 
 func (calc) operate(entrada string, operador string) int {
 	entradaLimpia := strings.Split(entrada, operador)
-	operador1, _ := strconv.Atoi(entradaLimpia[0])
-	operador2, _ := strconv.Atoi(entradaLimpia[1])
+	operador1 := parsear(entradaLimpia[0])
+	operador2 := parsear(entradaLimpia[1])
 	switch operador {
 	case "+":
 		fmt.Println(operador1 + operador2)
@@ -33,17 +33,12 @@ func (calc) operate(entrada string, operador string) int {
 	}
 }
 
-func leerEntrada() string {
+func parsear(entrada string) int {
+	operador, _ := strconv.Atoi(entrada)
+}
+
+func LeerEntrada() string {
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Scan()
 	return scanner.Text()
-}
-
-func main() {
-
-	entrada := leerEntrada()
-	operador := leerEntrada()
-	c := calc{}
-	fmt.Println(c.operate(entrada, operador))
-
 }
